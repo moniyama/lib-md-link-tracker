@@ -1,0 +1,16 @@
+{
+  "name": "md-links",
+  "version": "1.0.0",
+  "description": "library for reading links on Markdown docs",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "library",
+    "markdown",
+    "links"
+  ],
+  "author": "",
+  "license": "ISC"
+}
