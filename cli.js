@@ -5,10 +5,11 @@
 
 const mdlinks = require('./lib/index.js')
 
-mdlinks()
+mdlinks(process.argv[2])
     .then((result) => {
         result.forEach(element => {
             console.log(element.href + " " + element.text)
         });
+        console.log(process.argv)
     })
     .catch((error) => console.log(error))
