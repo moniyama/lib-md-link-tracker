@@ -12,5 +12,8 @@
     "links"
   ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bin": {
+    "mdLinks": "./cli.js"
+  }
 }
