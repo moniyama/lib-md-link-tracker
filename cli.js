@@ -10,7 +10,13 @@ const mdlinks = require("./lib/index.js");
 mdlinks(process.argv[2])
   .then((result) => {
     result.forEach(element => {
-      console.log(element.href + " " + element.text)
+      console.log(element.href + " " + element.text);
     });
   })
-  .catch((error) => console.log(error))
+  .catch((error) => { 
+    console.log("Ocorreu um erro:");
+    console.log('nº erro:', error.errno, 'Código:', error.code);
+    console.log('Código:', error.code);
+    console.log('Syscall:', error.syscall);
+    console.log('Path:', error.path);
+  });
