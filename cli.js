@@ -5,13 +5,16 @@
 //package.json:
 //echo é pra printar na tela
 //'jest --coverage' mostra a tabela % do teste
+
 const mdlinks = require("./lib/index.js");
 
 mdlinks(process.argv[2])
   .then((result) => {
-    result.forEach(element => {
-      console.log(element.href + " " + element.text);
-    });
+    Array.isArray(result)
+      ? result.forEach(element => {
+        console.log(element.href + " " + element.text);
+      })
+      : console.log('Não há links no arquivo')
   })
   .catch((error) => { 
     console.log("Ocorreu um erro:");
