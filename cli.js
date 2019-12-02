@@ -15,7 +15,7 @@ mdlinks(process.argv[2])
   })
   .catch((error) => { 
     console.log("Ocorreu um erro:");
-    console.log('nº erro:', error.errno, 'Código:', error.code);
+    console.log('nº erro:', error.errno);
     console.log('Código:', error.code);
     console.log('Syscall:', error.syscall);
     console.log('Path:', error.path);
