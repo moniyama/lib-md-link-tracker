@@ -1,43 +1,106 @@
-# Markdown Links
+# Markdown Link
 
-## Índice
 
-* [1. Prefácio](#1-prefácio)
-* [2. Resumo do projeto](#2-resumo-do-projeto)
-* [3. Objetivos de aprendizagem](#3-objetivos-de-aprendizagem)
-* [4. Considerações gerais](#4-considerações-gerais)
-* [5. Critérios de aceitação mínimos do
-  projeto](#5-critérios-de-aceitação-mínimos-do-projeto)
-* [6. Entregáveis](#6-entregáveis)
-* [7. Guias, dicas e leituras
-  complementares](#7-guias-dicas-e-leituras-complementares)
-* [8. Checklist](#8-checklist)
+## Ãndice
+* [1. Sobre](#1-sobre)
+* [2. InstalaÃ§Ã£o e uso](#2-instalaÃ§Ã£o)
+* [3. Roadmap](#3-roadmap)
 
-***
 
-## 1. Prefácio
+## 1. Sobre
+Essa biblioteca lÃª arquivos com linguagem [Markdown](https://pt.wikipedia.org/wiki/Markdown) e retorna os links contidos no arquivo. 
 
-[Markdown](https://pt.wikipedia.org/wiki/Markdown) é uma linguagem de marcação
-muito popular entre os programadores. É usada em muitas plataformas que
-manipulam texto (GitHub, fórum, blogs e etc), e é muito comum encontrar arquivos
-com este formato em qualquer repositório (começando pelo tradicional
+### Funcionamento
+Na linguagem Markdown, para criar um link, o texto linkado Ã© escrito entre colchetes e a URL entre parenteses, logo em seguida, conforme exemplo:
+```
+Visite o [Google](www.google.com)
+```
+Sendo renderizado da seguinte forma: 
+
+  Visite o [Google](www.google.com)
+
+Assim, essa biblioteca lÃª o documento e busca elementos com a mesma sintaxe, atravÃ©s de [expressÃµes regulares
+(`RegExp`)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_Expressions).
+
+### Backlog do produto
+* Texto com limitaÃ§Ã£o de 50 caracteres
+*
+
+#### Exemplos de Links ReconhecÃ­veis
+
+Link PadrÃ£o: 
+`[(CommonJS)](https://nodejs.org/docs/latest-v0.10.x/api/modules.html)`
+
+Com dois links na mesma linha: `
+[fs](https://nodejs.org/api/fs.html), [path](https://nodejs.org/api/path.html)`
+
+Com quebra de linha:`
+[JavaScript assÃ­ncrono: callbacks, promises e async
+  functions](https://medium.com/@alcidesqueiroz/javascript-ass%C3%ADncrono-callbacks-promises-e-async-functions-9191b8272298)`
+
+## 2. InstalaÃ§Ã£o e Uso
+### Instale pelo terminal
+```sh
+$ npm install -g moniyama/SAP003-md-links
+```
+### Uso
+AtravÃ©s do terminal, Ã© possivel executar atravÃ©s do comando:
+```sh
+$ md-links <caminho do arquivo>
+```
+Por exemplo:
+```sh
+$ md-links ./some/example.md
+http://algo.com/2/3/ Link de algo
+https://outra-coisa-.net/algum-doc.html algum doc
+http://google.com/ Google
+```
+Outro modo de utilizar este mÃ³dulo Ã© importando com `require`:
+```js
+const mdLinks = require("md-links");
+
+mdLinks("./example.md")
+  .then(links => {
+    // => [{ href, text }]
+  })
+  .catch(console.error);
+```
+
+## 3. Roadmap
+Atualmente, essa biblioteca apenas identifica os links presentes no documento Markdown. Para versÃµes futuras, deseja-se implementar a validaÃ§Ã£o dos links.
+
+
+
+
+
+
+
+
+
+
+
+
+[Markdown](https://pt.wikipedia.org/wiki/Markdown) ï¿½ uma linguagem de marcaï¿½ï¿½o
+muito popular entre os programadores. ï¿½ usada em muitas plataformas que
+manipulam texto (GitHub, fï¿½rum, blogs e etc), e ï¿½ muito comum encontrar arquivos
+com este formato em qualquer repositï¿½rio (comeï¿½ando pelo tradicional
 `README.md`).
 
-Os arquivos `Markdown` normalmente contém _links_ que muitas vezes estão
-quebrados, ou que já não são válidos e isso prejudica muito o valor da
-informação que está ali.
+Os arquivos `Markdown` normalmente contï¿½m _links_ que muitas vezes estï¿½o
+quebrados, ou que jï¿½ nï¿½o sï¿½o vï¿½lidos e isso prejudica muito o valor da
+informaï¿½ï¿½o que estï¿½ ali.
 
-Uma comunidade open source nos propôs criar uma ferramenta, usando
+Uma comunidade open source nos propï¿½s criar uma ferramenta, usando
 [Node.js](https://nodejs.org/), que leia e analise arquivos no formato
 `Markdown`, para verificar os arquivos que contenham links e mostrar algumas
-estatísticas.
+estatï¿½sticas.
 
 ![md-links](https://user-images.githubusercontent.com/110297/42118443-b7a5f1f0-7bc8-11e8-96ad-9cc5593715a6.jpg)
 
 ## 2. Resumo do projeto
 
-[Node.js](https://nodejs.org/pt-br/) é um ambiente de execução para JavaScript
-construído com o [motor de JavaScript V8 do
+[Node.js](https://nodejs.org/pt-br/) ï¿½ um ambiente de execuï¿½ï¿½o para JavaScript
+construï¿½do com o [motor de JavaScript V8 do
 [Chrome](https://developers.google.com/v8/). Ele vai nos permitir executar o
 JavaScript no nosso sistema operacional, seja no seu computador ou em um
 servidor, o que nos abre portas para poder interagir com sistemas, arquivos,
@@ -45,117 +108,117 @@ redes e etc.
 
 Neste projeto vamos ficar um pouco longe do navegador para construir um programa
 que seja executado com Node.js, onde iremos aprender sobre como interagir com
-sistemas de arquivos e com o ambiente onde é executado o node (_process_, _env_,
+sistemas de arquivos e com o ambiente onde ï¿½ executado o node (_process_, _env_,
 _stdin/stdout/stderr_), ...
 
-Este projeto você criará uma ferramenta de linha de comando (CLI) assim como a
-sua própria biblioteca (library) em JavaScript.
+Este projeto vocï¿½ criarï¿½ uma ferramenta de linha de comando (CLI) assim como a
+sua prï¿½pria biblioteca (library) em JavaScript.
 
 ## 3. Objetivos de aprendizagem
 
-Desenvolver sua própria biblioteca é uma experiência fundamental para qualquer
-desenvolvedora, pois te obriga a pensar na interface (API) dos seus _módulos_ e
-como ela será usada por outras desenvolvedoras. Você deve levar em conta as
-peculiaridades da linguagem, convenções e boas práticas.
+Desenvolver sua prï¿½pria biblioteca ï¿½ uma experiï¿½ncia fundamental para qualquer
+desenvolvedora, pois te obriga a pensar na interface (API) dos seus _mï¿½dulos_ e
+como ela serï¿½ usada por outras desenvolvedoras. Vocï¿½ deve levar em conta as
+peculiaridades da linguagem, convenï¿½ï¿½es e boas prï¿½ticas.
 
-A seguir você pode conferir os objetivos de aprendizagem deste projeto:
+A seguir vocï¿½ pode conferir os objetivos de aprendizagem deste projeto:
 
 ### Javascript
 
 * [ ] Uso de callbacks
 * [ ] Consumo de Promises
-* [ ] Criação de uma Promise
-* [ ] Módulos de JS (CommonJS vs ES Modules)
+* [ ] Criaï¿½ï¿½o de uma Promise
+* [ ] Mï¿½dulos de JS (CommonJS vs ES Modules)
 
 ### Node
 
 * [ ] Sistema de arquivos ([fs](https://nodejs.org/api/fs.html), [path](https://nodejs.org/api/path.html))
 * [ ] [package.json](https://docs.npmjs.com/files/package.json)
-* [ ] criação de módulos [(CommonJS)](https://nodejs.org/docs/latest-v0.10.x/api/modules.html)
-* [ ] Instalar e usar módulos ([npm](https://www.npmjs.com/))
+* [ ] criaï¿½ï¿½o de mï¿½dulos [(CommonJS)](https://nodejs.org/docs/latest-v0.10.x/api/modules.html)
+* [ ] Instalar e usar mï¿½dulos ([npm](https://www.npmjs.com/))
 * [ ] [npm-scripts](https://docs.npmjs.com/misc/scripts)
 * [ ] CLI (Command Line Interface - Interface de Linha de Comando)
 * [ ] [http.get](https://nodejs.org/api/http.html#http_http_get_options_callback)
 
 ### Testing
 
-* [ ] Testar suas funções
-* [ ] Teste assíncrono
+* [ ] Testar suas funï¿½ï¿½es
+* [ ] Teste assï¿½ncrono
 * [ ] Usar biblioteca de mock
 * [ ] Mock manual
-* [ ] Teste para múltiplos sistemas operacionais
+* [ ] Teste para mï¿½ltiplos sistemas operacionais
 
 ### Git e Github
 
-* [ ] Organização no Github
+* [ ] Organizaï¿½ï¿½o no Github
 
-### Boas práticas de desenvolvimento
+### Boas prï¿½ticas de desenvolvimento
 
-* [ ] Modularização
-* [ ] Nomenclatura / Semântica
+* [ ] Modularizaï¿½ï¿½o
+* [ ] Nomenclatura / Semï¿½ntica
 * [ ] Linting
 
 ***
 
-## 4. Considerações gerais
+## 4. Consideraï¿½ï¿½es gerais
 
 * Este projeto deve ser feito individualmente.
 
-* A biblioteca e script executável (ferramenta de linha de comando - CLI) devem
-  ser implementados em JavaScript para serem executadas com Node.JS. **É permitido
+* A biblioteca e script executï¿½vel (ferramenta de linha de comando - CLI) devem
+  ser implementados em JavaScript para serem executadas com Node.JS. **ï¿½ permitido
   usar bibliotecas externas**.
 
-* O seu módulo deve ser instalável via `npm install <github-user>/md-links`. O
-  módulo deve incluir um _executável_ que pode ser chamado tanto por linha de
-  comando, quanto importado com `require` para ser usado em seu código.
+* O seu mï¿½dulo deve ser instalï¿½vel via `npm install <github-user>/md-links`. O
+  mï¿½dulo deve incluir um _executï¿½vel_ que pode ser chamado tanto por linha de
+  comando, quanto importado com `require` para ser usado em seu cï¿½digo.
 
-* Os testes unitários devem cobrir no mínimo 99,9% dos _statements_, _functions_,
+* Os testes unitï¿½rios devem cobrir no mï¿½nimo 99,9% dos _statements_, _functions_,
   _lines_ e _branches_. Recomendamos que explore o [Jest](https://jestjs.io/)
-  para as suas provas unitárias.
+  para as suas provas unitï¿½rias.
 
-* Neste projeto não é permitido utilizar `async/await`.
+* Neste projeto nï¿½o ï¿½ permitido utilizar `async/await`.
 
-## 5. Critérios de aceitação mínimos do projeto
+## 5. Critï¿½rios de aceitaï¿½ï¿½o mï¿½nimos do projeto
 
-Para começar este projeto você deverá fazer um _fork_ e _clonar_ este
-repositório.
+Para comeï¿½ar este projeto vocï¿½ deverï¿½ fazer um _fork_ e _clonar_ este
+repositï¿½rio.
 
 
 ### Arquivos do projeto
 
-* `README.md` com descrição do módulo, instruções de instalação e uso,
-  documentação da API e exemplos. Tudo que for relevante para qualquer
+* `README.md` com descriï¿½ï¿½o do mï¿½dulo, instruï¿½ï¿½es de instalaï¿½ï¿½o e uso,
+  documentaï¿½ï¿½o da API e exemplos. Tudo que for relevante para qualquer
   desenvolvedora saber como utilizar a sua biblioteca sem inconvenientes.
-* `package.json` deve possuir o nome, versão, descrição, autor, licença,
-  dependências e scripts (eslint e test).
+* `package.json` deve possuir o nome, versï¿½o, descriï¿½ï¿½o, autor, licenï¿½a,
+  dependï¿½ncias e scripts (eslint e test).
 * `package-lock.json` arquivo gerado pelo npm, para controle dos pacotes
   instalados
-* `.eslintrc` com a configuração para o linter. Este arquivo não deve ser
+* `.eslintrc` com a configuraï¿½ï¿½o para o linter. Este arquivo nï¿½o deve ser
   alterado.
-* `.gitignore` para ignorar o `node_modules` e outras pastas que não deve ser
-  incluídas no controle de versão (`git`).
-* `cli.js` este arquivo deve chamar a função `mdLinks` que será executada pela
+* `.gitignore` para ignorar o `node_modules` e outras pastas que nï¿½o deve ser
+  incluï¿½das no controle de versï¿½o (`git`).
+* `cli.js` este arquivo deve chamar a funï¿½ï¿½o `mdLinks` que serï¿½ executada pela
   linha de comando.
-* `lib/index.js` criação e exportação da função `mdLinks`.
-* `lib/__test__/index.spec.js` deve conter os testes unitários para a função
+* `lib/index.js` criaï¿½ï¿½o e exportaï¿½ï¿½o da funï¿½ï¿½o `mdLinks`.
+* `lib/__test__/index.spec.js` deve conter os testes unitï¿½rios para a funï¿½ï¿½o
   `mdLinks`.
 
 ### JavaScript API
 
-O módulo deve poder ser importado em outros scripts Node.js e deve oferecer a
+O mï¿½dulo deve poder ser importado em outros scripts Node.js e deve oferecer a
 seguinte interface:
 
 #### `mdLinks(path)`
 
 ##### Argumento
 
-* `path`: Rota absoluta ou relativa ao arquivo. Se a rota passada é
-  relativa, deve resolver como sendo relativa ao diretório onde foi chamada -
+* `path`: Rota absoluta ou relativa ao arquivo. Se a rota passada ï¿½
+  relativa, deve resolver como sendo relativa ao diretï¿½rio onde foi chamada -
   _current working directory_
 
 ##### Valor de retorno
 
-A função deve retornar uma promessa (`Promise`) que resolve um array (`Array`) e
+A funï¿½ï¿½o deve retornar uma promessa (`Promise`) que resolve um array (`Array`) e
 objetos(`Object`), onde cada objeto representa um link, contendo as seguintes
 propriedades:
 
@@ -176,23 +239,23 @@ mdLinks("./example.md")
 
 ### CLI (Command Line Interface - Interface de Linha de Comando)
 
-O executável da nossa aplicação deve poder ser executado da seguinte maneira,
-através do terminal:
+O executï¿½vel da nossa aplicaï¿½ï¿½o deve poder ser executado da seguinte maneira,
+atravï¿½s do terminal:
 
 `md-links <path-to-file> [options]`
 
 Por exemplo:
 
-```sh
+```
 $ md-links ./some/example.md
 http://algo.com/2/3/ Link de algo
 https://outra-coisa-.net/algum-doc.html algum doc
 http://google.com/ Google
 ```
 
-O comportamento padrão não deve validar se as URLs responde ok ou não, somente
+O comportamento padrï¿½o nï¿½o deve validar se as URLs responde ok ou nï¿½o, somente
 deve identificar o arquivo markdown (a partir da rota que recebeu como
-argumento), analisar o arquivo Markdown e imprimir os links que vão sendo
+argumento), analisar o arquivo Markdown e imprimir os links que vï¿½o sendo
 encontrados, junto com a rota do arquivo onde aparece e o texto que tem dentro
 do link (truncado 50 caracteres).
 
@@ -201,10 +264,10 @@ do link (truncado 50 caracteres).
 
 ##### Argumentos
 
-Adicionar o argumento `option`, dentro da função `mdLinks(path, option)`
+Adicionar o argumento `option`, dentro da funï¿½ï¿½o `mdLinks(path, option)`
 
-* `path`: Rota absoluta ou relativa ao arquivo. Se a rota passada é
-  relativa, deve resolver como sendo relativa ao diretório onde foi chamada -
+* `path`: Rota absoluta ou relativa ao arquivo. Se a rota passada ï¿½
+  relativa, deve resolver como sendo relativa ao diretï¿½rio onde foi chamada -
   _current working directory_
 * `option`: Um objeto com a seguinte propriedade:
   - `validate`: Um booleano que determina se deseja validar os links
@@ -212,12 +275,12 @@ Adicionar o argumento `option`, dentro da função `mdLinks(path, option)`
 
 ##### Valor de retorno
 
-Você deve adicionar o _status_ da requisição dentro do objeto da resposta de
+Vocï¿½ deve adicionar o _status_ da requisiï¿½ï¿½o dentro do objeto da resposta de
 cada url encontrada.
 
 * `href`: URL encontrada.
 * `text`: Texto dentro do markdown.
-* `status`: Status da requisição.
+* `status`: Status da requisiï¿½ï¿½o.
 
 ##### Exemplo
 
@@ -233,9 +296,9 @@ mdLinks("/some/example.md", { validate: true })
 
 ##### CLI `--validate`
 
-Se passamos a opção `--validate`, o módulo deve fazer uma requisição HTTP para
-verificar se o link funciona ou não. Se o link resultar em um redirecionamento a
-uma URL que responde ok, então consideraremos o link como ok.
+Se passamos a opï¿½ï¿½o `--validate`, o mï¿½dulo deve fazer uma requisiï¿½ï¿½o HTTP para
+verificar se o link funciona ou nï¿½o. Se o link resultar em um redirecionamento a
+uma URL que responde ok, entï¿½o consideraremos o link como ok.
 
 Por exemplo:
 
@@ -246,41 +309,41 @@ https://outra-coisa-.net/algum-doc.html 404 algum doc
 http://google.com/ 301 Google
 ```
 
-## 6. Entregáveis
+## 6. Entregï¿½veis
 
-O módulo deve ser instalável via `npm install <github-user>/md-links`. Este
-módulo deve incluir um executável que pode ser chamado tanto por linha de
-comando, quanto importado com `require` para usá-lo no seu código.
+O mï¿½dulo deve ser instalï¿½vel via `npm install <github-user>/md-links`. Este
+mï¿½dulo deve incluir um executï¿½vel que pode ser chamado tanto por linha de
+comando, quanto importado com `require` para usï¿½-lo no seu cï¿½digo.
 
 ## 7. Guias, dicas e leituras complementares
 
 ### FAQs
 
-#### Como faço para que o meu módulo seja instalável pelo GitHub?
+#### Como faï¿½o para que o meu mï¿½dulo seja instalï¿½vel pelo GitHub?
 
-Para que o módulo seja instalável pelo GitHub você tem que:
+Para que o mï¿½dulo seja instalï¿½vel pelo GitHub vocï¿½ tem que:
 
-* Deixar o seu repo público
-* Ter um `package.json` válido
+* Deixar o seu repo pï¿½blico
+* Ter um `package.json` vï¿½lido
 
 Com o comando `npm install <githubname>/<reponame>` podemos instalar diretamente
 pelo GitHub. Ver [docs oficiais dp `npm install`
 aqui](https://docs.npmjs.com/cli/install)
 
 Por exemplo, o
-[`curriculum-parser`](https://github.com/Laboratoria/curriculum-parser) que é
-usado para o currículo não está publicado nos registros públicos do NPM, com
+[`curriculum-parser`](https://github.com/Laboratoria/curriculum-parser) que ï¿½
+usado para o currï¿½culo nï¿½o estï¿½ publicado nos registros pï¿½blicos do NPM, com
 isso temos que instalar diretamente desde o GitHub com o commando `npm install
 Laboratoria/curriculum-parser`.
 
-### Sugestões de implementação
+### Sugestï¿½es de implementaï¿½ï¿½o
 
-A implementação deste projeto tem várias partes: ler do sistema de arquivos,
-receber argumento através da linha de comando, analisar um teste, fazer
+A implementaï¿½ï¿½o deste projeto tem vï¿½rias partes: ler do sistema de arquivos,
+receber argumento atravï¿½s da linha de comando, analisar um teste, fazer
 consultas HTTP, ... e tudo isso pode ser feito de muitas formas, tanto com
 bibliotecas quanto com JS puro.
 
-Para esse projeto recomendamos o uso de [expressões regulares
+Para esse projeto recomendamos o uso de [expressï¿½es regulares
 (`RegExp`)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_Expressions)
 
 ### Tutoriais / NodeSchool workshoppers
@@ -291,29 +354,29 @@ Para esse projeto recomendamos o uso de [expressões regulares
 
 ### Outros recursos
 
-* [Sobre Node.js - Documentação oficial](https://nodejs.org/pt-br/about/)
-* [Node.js file system - Documentação oficial](https://nodejs.org/api/fs.html)
-* [Node.js http.get - Documentação
+* [Sobre Node.js - Documentaï¿½ï¿½o oficial](https://nodejs.org/pt-br/about/)
+* [Node.js file system - Documentaï¿½ï¿½o oficial](https://nodejs.org/api/fs.html)
+* [Node.js http.get - Documentaï¿½ï¿½o
   oficial](https://nodejs.org/api/http.html#http_http_get_options_callback)
 * [Node.js - Wikipedia](https://pt.wikipedia.org/wiki/Node.js)
 * [What exactly is Node.js? -
   freeCodeCamp](https://medium.freecodecamp.org/what-exactly-is-node-js-ae36e97449f5)
-* [Node.js – O que é, como funciona e quais as
+* [Node.js ï¿½ O que ï¿½, como funciona e quais as
   vantagens](https://www.opus-software.com.br/node-js/)
-* [O que é npm](https://www.hostinger.com.br/tutoriais/o-que-e-npm)
-* [Módulos, librerías, paquetes, frameworks... ¿cuál es la
+* [O que ï¿½ npm](https://www.hostinger.com.br/tutoriais/o-que-e-npm)
+* [Mï¿½dulos, librerï¿½as, paquetes, frameworks... ï¿½cuï¿½l es la
   diferencia?](http://community.laboratoria.la/t/modulos-librerias-paquetes-frameworks-cual-es-la-diferencia/175)
-* [JavaScript assíncrono: callbacks, promises e async
+* [JavaScript assï¿½ncrono: callbacks, promises e async
   functions](https://medium.com/@alcidesqueiroz/javascript-ass%C3%ADncrono-callbacks-promises-e-async-functions-9191b8272298)
 * [NPM](https://docs.npmjs.com/getting-started/what-is-npm)
 * [Publicar
   package](https://docs.npmjs.com/getting-started/publishing-npm-packages)
-* [Criando um módulo
+* [Criando um mï¿½dulo
   Node.js](https://docs.npmjs.com/getting-started/publishing-npm-packages)
 * [Ler um
   arquivo](https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback)
 * [Ler um
-  diretório](https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback)
+  diretï¿½rio](https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback)
 * [Path](https://nodejs.org/api/path.html)
 * [Criando sua CLI com
   Node.js](https://medium.com/henriquekuwai/criando-sua-cli-com-node-js-d6dee7d03110)
@@ -326,22 +389,22 @@ Para esse projeto recomendamos o uso de [expressões regulares
 
 ### `README.md`
 
-* [ ] Um board com o backlog com as implementações da sua biblioteca
-* [ ] Documentação técnica da sua biblioteca
-* [ ] Guia de uso e instalação da biblioteca
+* [ ] Um board com o backlog com as implementaï¿½ï¿½es da sua biblioteca
+* [ ] Documentaï¿½ï¿½o tï¿½cnica da sua biblioteca
+* [ ] Guia de uso e instalaï¿½ï¿½o da biblioteca
 
 ### API `mdLinks(path)`
 
-* [ ] O módulo exporta uma função com a interface (API) esperada
+* [ ] O mï¿½dulo exporta uma funï¿½ï¿½o com a interface (API) esperada
 * [ ] Implementa suporte para arquivo individual
 
 ### CLI
 
-* [ ] Possuir o executável `md-links` no path (configurado no `package.json`)
+* [ ] Possuir o executï¿½vel `md-links` no path (configurado no `package.json`)
 * [ ] Executar sem erros e ter o resultado esperado
 
 ### Testes
 
-* [ ] Os testes unitários devem cobrir no mínimo 99,9% dos statements, functions,
+* [ ] Os testes unitï¿½rios devem cobrir no mï¿½nimo 99,9% dos statements, functions,
   lines e branches.
 * [ ] Rodar os tests e linter (`npm test`).
