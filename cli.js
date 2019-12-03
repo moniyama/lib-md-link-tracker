@@ -6,7 +6,7 @@ mdlinks(process.argv[2])
   .then((result) => {
     Array.isArray(result)
       ? result.forEach(element => {
-        console.log(element.href, element.text);
+        console.log(element.href, element.text.substring(0, 50));
       })
       : console.log("Não há links no arquivo");
   })
