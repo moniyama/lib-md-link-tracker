@@ -14,12 +14,12 @@ mdlinks(process.argv[2])
       ? result.forEach(element => {
         console.log(element.href + " " + element.text);
       })
-      : console.log('Não há links no arquivo')
+      : console.log("Não há links no arquivo");
   })
   .catch((error) => { 
     console.log("Ocorreu um erro:");
-    console.log('nº erro:', error.errno);
-    console.log('Código:', error.code);
-    console.log('Syscall:', error.syscall);
-    console.log('Path:', error.path);
+    console.log("nº erro:", error.errno);
+    console.log("Código:", error.code);
+    console.log("Syscall:", error.syscall);
+    console.log("Path:", error.path);
   });
