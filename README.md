@@ -1,7 +1,7 @@
 # Markdown Link
 ## Índice
 * [1. Sobre](#1-sobre)
-* [2. Instalação e uso](#2-instalação)
+* [2. Instalação e uso](#2-instalação-e-uso)
 * [3. Roadmap](#3-roadmap)
 
 ## 1. Sobre
@@ -53,7 +53,7 @@ Imagens, Links com títulos e alguns padrões similares **não** são incluídos
 
 [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy")
 ```
-## 2. Uso e instalação
+## 2. Instalação e Uso
 ### Instale pelo terminal
 ```sh
 $ npm install -g moniyama/SAP003-md-links
