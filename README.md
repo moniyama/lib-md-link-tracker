@@ -3,7 +3,6 @@
 * [1. Sobre](#1-sobre)
 * [2. Instalação e uso](#2-instalação)
 * [3. Roadmap](#3-roadmap)
-***
 
 ## 1. Sobre
 Essa biblioteca lê arquivos em linguagem de marcação *Markdown* e retorna as URLs dos links e seus respectivos textos.
@@ -54,7 +53,6 @@ Imagens, Links com títulos e alguns padrões similares **não** são incluídos
 
 [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy")
 ```
-***
 ## 2. Uso e instalação
 ### Instale pelo terminal
 ```sh
@@ -99,7 +97,6 @@ mdLinks("./example.md")
   })
   .catch(console.error);
 ```
-***
 ## 3. Roadmap
 Atualmente, essa biblioteca apenas identifica os links presentes no documento Markdown. Para versões futuras, deseja-se implementar a validação dos links.
 
