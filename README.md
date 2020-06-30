@@ -101,7 +101,6 @@ A seguir você pode conferir os objetivos de aprendizagem deste projeto:
 * [ ] Uso de comandos de git (add | commit | pull | status | push)
 * [ ] Gerenciamento de repositorios de GitHub (clone | fork | gh-pages)
 * [ ] Colaboração no Github (branches | pull requests | |tags)
-* [ ] Organização no Github (projects | issues | labels | milestones)
 
 ### HTTP
 
@@ -139,13 +138,6 @@ A seguir você pode conferir os objetivos de aprendizagem deste projeto:
 
 Para começar este projeto você deverá fazer um _fork_ e _clonar_ este
 repositório.
-
-Antes de começar o código, é necessário criar um plano de ação. Ele deve estar
-detalhado no `README.md` do seu repositório e em uma série de _issues_ e
-_milestones_ para priorizar e organizar o trabalho, e para fazer um
-acompanhamento do seu progresso.
-
-Dentro de cada _milestone_ deve-se criar e atribuir as _issues_.
 
 ### Arquivos do projeto
 
@@ -293,7 +285,6 @@ aprendizagem deste projeto.
 * Poder adicionar uma propriedade `line` a cada objeto `link` indicando em que
   linha do arquivo está o link.
 * Poder agregar mais estatísticas.
-* Integração contínua com Travis ou Circle CI.
 
 ***
 
@@ -339,6 +330,8 @@ criado das seguintes maneiras (todas são válidas):
   [Cheerio](https://github.com/cheeriojs/cheerio)).
 * Usando um _custom renderer_ de [marked](https://github.com/markedjs/marked)
   (`new marked.Renderer()`).
+
+**Nós recomendamos o uso de `Regex` ou da biblioteca de `JSDOM`**
 
 Não hesite em consultar as suas companheiras, mentores e/ou o [fórum da
 comunidade](http://community.laboratoria.la/c/js) se tiver dúvidas a respeito
