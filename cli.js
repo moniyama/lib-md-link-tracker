@@ -3,6 +3,7 @@
 const mdLinks = require ('./index.js')
 const path = process.argv[2]
 const optionsPossibilities = [ process.argv[3], process.argv[4]]
+const possibleStrings = [ '--validate', '-v']
 let options = {}
 
 if (optionsPossibilities.includes('--validate')) {
@@ -20,8 +21,10 @@ const countLink = (array) => {
   }
 }
 
+
 mdLinks(path, options)
   .then(result => {
+    console.log("result", result)
     const statistics = countLink(result)
     if(options.stats) {     // printa statics 
       console.log("Total", statistics.total)
