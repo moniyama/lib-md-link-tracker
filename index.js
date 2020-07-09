@@ -2,6 +2,8 @@ const fs = require("fs");
 const fetch = require("node-fetch");
 const path = require("path");
 
+// testar caminhos de erros
+
 const isFile = (inputPath, extensionFile) => {
   return new Promise((resolve, reject) => {
     fs.stat(inputPath, (err, stat) => {
@@ -49,14 +51,14 @@ const readFile = (pathArray) => {
       });
       return formattedLinks;
     });
-    return array.reduce((pre, curr) => pre.concat(curr));
+    return array.reduce((pre, curr) => pre.concat(curr), []);
   };
 
   return new Promise((resolve, reject) => {
     Promise.all(pathArray.map((pathFile) => readFileContent(pathFile)))
       .then((array) => getLinks(array))
       .then((data) => resolve(data))
-      .catch((err) => reject(err));
+      .catch((err) => reject(err));     // linha não coberta no teste
   });
 };
 
@@ -64,7 +66,7 @@ const getDirContent = (dirPath) => {
   return new Promise((resolve, reject) => {
     fs.readdir(dirPath, (err, files) => {
       if (err) return reject(err);
-      const arrayOfdirContent = files.map((file) => path.join(dirPath, file));
+      const arrayOfdirContent = files.map((file) => dirPath.concat(file));
       return resolve(arrayOfdirContent);
     });
   });
@@ -81,9 +83,8 @@ const separateFilesAndDirArray = (array, extensionFile) => {
           : (otherFiles = [...otherFiles, eachPath]);
       });
       resolve({ mdFiles, otherFiles });
-    } else {
-      reject({});
-    }
+    } 
+    else reject("não há arquivos md no file");       // precisa retornar esse erro // nao cobre esse erro
   });
 };
 
@@ -126,9 +127,7 @@ const mdlinks = (inputPath, options) => {
     });
   };
 
-  return options.validate
-    ? getDataWithValidation(inputPath)
-    : getData(inputPath);
+  return options.validate ? getDataWithValidation(inputPath) : getData(inputPath);
 };
 
 module.exports = mdlinks;
