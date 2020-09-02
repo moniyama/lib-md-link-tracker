@@ -8,8 +8,8 @@ const isValidFile = (inputPath) => {
 			if (err) reject(err);
 			else if (stat.isFile() && path.extname(inputPath) === extensionFile) {
 				resolve(inputPath);
-			} else reject("Arquivo não é markdown");
-		});
+			} else reject(`${inputPath} não é válido`);
+		}) ;
 	});
 };
 
