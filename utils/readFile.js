@@ -8,7 +8,7 @@ const readFile = (pathFile) => {
 			if (err) reject(err);
 			else
 				matchRegexArray(data)
-					? resolve(formatArray(matchRegexArray(data)))
+					? resolve(formatArray(matchRegexArray(data), pathFile))
 					: reject("Não há links no arquivo");
 		});
 	});
