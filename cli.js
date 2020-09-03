@@ -2,7 +2,7 @@
 
 const mdlinks = require("./lib/index.js");
 
-mdlinks(process.argv[2], { validate: false })
+mdlinks(process.argv[2], { validate: true })
 	.then((result) => {
 		console.log(result)
 		// result.forEach((element) => {
