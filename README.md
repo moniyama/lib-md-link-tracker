@@ -25,16 +25,16 @@ As expressões regulares podem ser definidas a partir da sintaxe  do *Markdown*,
 Há algumas maneiras para se criar um link nessa linguagem de marcação. Aqui, adotou-se o meio, no qual o texto linkado é escrito entre colchetes, seguida pela URL entre parenteses, conforme exemplo:
 
 ```md
-[Texto qualquer](URL)
+[Texto qualquer](https://anydomain)
 ```
 
 Por exemplo:
 
-`Acesse o [Google](www.google.com)`
+`Acesse o [Google](https://google.com)`
 
 é renderizado da seguinte forma:
 
-Acesse o [Google](www.google.com)
+Acesse o [Google](https://google.com)
 
 Assim, segue alguns exemplos que essa biblioteca identifica:
 
