@@ -19,7 +19,7 @@ const getData = async (path) => {
 						.map((file) => file.value)
 						.reduce((acc, current) => acc.concat(current))
 				)
-			} catch (error) { return error }
+			} catch (error) { console.log("error getData", error); return error }
 		} else {
 			try {
 				const path = await isValidFile(res.path)
