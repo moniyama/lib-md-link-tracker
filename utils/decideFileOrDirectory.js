@@ -8,8 +8,8 @@ const isFileOrDirectory = (inputPath) => {
 		}
 		fs.stat(inputPath, (err, stat) => {
 			if (err) reject(err);
-			else if (stat.isFile()) resolve({...result, type: "file"});
-			else if (stat.isDirectory()) resolve({...result, type: "dir"});
+			else if (stat.isFile()) resolve({ ...result, type: "file" });
+			else if (stat.isDirectory()) resolve({ ...result, type: "dir" });
 		});
 	});
 };

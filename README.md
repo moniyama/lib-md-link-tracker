@@ -117,6 +117,23 @@ mdLinks("./example.md")
   .catch(console.error);
 ```
 
+#### Tratativas de erros
+
+Ao ler um arquivo:
+
+* Arquivo que não são da extensão ".md"
+* Arquivo não encontrado/existente
+* Arquivo sem conter links
+
+Ao ler um diretório:
+
+* Diretório não encontrado/existente
+* Diretório sem arquivos de extensão ".md"
+
 ## 3. Roadmap
 
 Atualmente, essa biblioteca apenas identifica os links presentes no documento Markdown. Para versões futuras, deseja-se implementar a validação dos links.
+
+## 4. Versões
+
+_v1.0_ : Versão lendo apenas arquivos Markdown
